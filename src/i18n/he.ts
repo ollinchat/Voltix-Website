@@ -71,37 +71,15 @@ export const he: Translation = {
     ],
   },
   synergy: {
-    label: '02 — סינרגיית JV',
-    title: 'כוח EPC חסר תחרות',
+    label: '02 — \u05e1\u05d9\u05e0\u05e8\u05d2\u05d9\u05d9\u05ea JV',
+    title: '\u05db\u05d5\u05d7 EPC \u05d7\u05e1\u05e8 \u05ea\u05d7\u05e8\u05d5\u05ea',
     subtitle:
-      'סמי נג\'אמי ו-C. זעתוט — שני בעלי תפקידים תעשייתיים שנכסיהם המשולבים יוצרים פלטפורמת EPC ללא תחרות באזור.',
-    tabs: {
-      all: 'יכולת המיזם המשותף',
-      najami: 'סמי נג\'אמי',
-      zatout: 'C. זעתוט',
+      '\u05e1\u05de\u05d9 \u05e0\u05d2\'\u05d0\u05de\u05d9 \u05d5-C. \u05d6\u05e2\u05ea\u05d5\u05d8 \u2014 \u05e9\u05e0\u05d9 \u05d1\u05e2\u05dc\u05d9 \u05ea\u05e4\u05e7\u05d9\u05d3\u05d9\u05dd \u05ea\u05e2\u05e9\u05d9\u05d9\u05d9\u05d9\u05dd \u05e9\u05e0\u05db\u05e1\u05d9\u05d9\u05d4\u05dd \u05d4\u05de\u05e9\u05d5\u05dc\u05d1\u05d9\u05dd \u05d9\u05d5\u05e6\u05e8\u05d9\u05dd \u05e4\u05dc\u05d8\u05e4\u05d5\u05e8\u05de\u05ea EPC \u05dc\u05dc\u05d0 \u05ea\u05d7\u05e8\u05d5\u05ea \u05d1\u05d0\u05d6\u05d5\u05e8.',
+    alliance: {
+      heading: 'A Unified Industrial Front',
+      body:
+        'The strategic alliance between Sami Najami and C. Zatout merges world-class fabrication capabilities with massive EPC infrastructure delivery. By combining two industrial powerhouses into one command structure, we eliminate interface gaps and provide a single point of responsibility for the region\'s most complex energy and water projects.',
     },
-    combinedPower: 'יכולת מצטברת של המיזם',
-    metrics: [
-      { value: '82,000', unit: 'מ"ר', label: 'מתחם מפעלים משולב' },
-      { value: '15,000', unit: 'טון', label: 'קיבולת ייצור פלדה שנתית' },
-      { value: 'מלא', unit: 'EPC', label: 'הנדסה · רכש · בנייה' },
-    ],
-    partners: [
-      {
-        name: 'סמי נג\'אמי',
-        role: 'בעל תפקיד — פלדה וייצור',
-        expertise: 'פלדה מבנית · כלי לחץ · ייצור כבד',
-        description:
-          'אדריכל מתחם ייצור תעשייתי בן 82,000 מ"ר עם מפעלי גילגול, אולמות חיתוך CNC וקווי ריתוך אוטומטיים. מתקני נג\'אמי סיפקו פלדה מבנית לתחנות כוח, בתי זיקוק וליבות גורדי שחקים לאורך עשורים.',
-      },
-      {
-        name: 'C. זעתוט',
-        role: 'בעל תפקיד — מכניקה כבדה וצנרת תעשייתית',
-        expertise: 'עבודות מכניות כבדות · צנרת תעשייתית · תשתיות אנרגיה וכימיה',
-        description:
-          'בעל תפקיד ותיק ב-EPC המתמחה בהקמת מכונות כבדות, מערכות צנרת תעשייתית ותשתיות לתחנות אנרגיה וכימיה. זעתוט מפקד על רשתות צנרת תואמות ASME, צנרת תהליך לבתי זיקוק ומתקני פטרוכימיה, ואינטגרציה אזרחית-מכנית הנדרשת להפעלה בזמן.',
-      },
-    ],
   },
   team: {
     label: '03 — הנהגה',

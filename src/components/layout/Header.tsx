@@ -39,8 +39,8 @@ export function Header() {
       className="fixed inset-x-0 top-0 z-50 border-b border-transparent backdrop-blur-md"
     >
       <div className="mx-auto flex h-20 max-w-[1600px] items-center justify-between px-6 md:px-12 lg:px-20">
-        <button onClick={() => scrollTo('hero')} className="focus-ring" aria-label="Home">
-          <Logo size="sm" />
+        <button onClick={() => scrollTo('hero')} className="focus-ring flex shrink-0 items-center" aria-label="Home">
+          <Logo size="nav" />
         </button>
 
         <nav className="hidden items-center gap-0.5 xl:flex" aria-label="Main navigation">

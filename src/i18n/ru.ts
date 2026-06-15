@@ -60,29 +60,10 @@ export const ru: Translation = {
     title: 'Neprevzoydennaya sila EPC',
     subtitle:
       'Sami Najami i C. Zatout — dva promyshlennykh lidera, chyi obedinennye aktivy sozdayut unikalnuyu EPC-platformu v regione.',
-    tabs: {
-      all: 'Vozmozhnosti sovmestnogo predpriyatiya',
-      najami: 'Sami Najami',
-      zatout: 'C. Zatout',
+    alliance: {
+      heading: 'A Unified Industrial Front',
+      body: en.synergy.alliance.body,
     },
-    combinedPower: 'Sovokupnye vozmozhnosti JV',
-    metrics: [
-      { value: '82,000', unit: 'KV.M', label: 'Integrirovannyy proizvodstvennyy kompleks' },
-      { value: '15,000', unit: 'TONN', label: 'Godovaya proizvoditelnost stali' },
-      { value: 'POLNY', unit: 'EPC', label: 'Inzheneriya · Zakupki · Stroitelstvo' },
-    ],
-    partners: [
-      {
-        ...en.synergy.partners[0],
-        role: 'Partner — stal i proizvodstvo',
-        expertise: 'Stalnye konstruktsii · Sosudy davleniya · Tyazholoe proizvodstvo',
-      },
-      {
-        ...en.synergy.partners[1],
-        role: 'Partner — tyazholaya mekhanika i truboprovody',
-        expertise: 'Tyazhelye mekhanicheskie raboty · Promyshlennye truboprovody · Energetika i khimiya',
-      },
-    ],
   },
   team: {
     ...en.team,

@@ -9,3 +9,7 @@ export const heroVideos = [
 
 /** Poster fallbacks when video is loading or unavailable */
 export const heroPosters = images.hero;
+
+/** Synergy section featured video */
+export const synergyVideo = '/videos/hero-forge.mp4';
+export const synergyVideoPoster = '/images/synergy-steel.jpg';
