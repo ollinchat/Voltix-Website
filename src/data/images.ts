@@ -20,6 +20,10 @@ export const images = {
     steel: '/images/portfolio-steel.jpg',
     water: '/images/portfolio-water.jpg',
   },
+  credibility: {
+    duns100: '/images/badge-duns100.png',
+    bdiCode2026: '/images/badge-bdi-code-2026.png',
+  },
   services: {
     epc: '/images/hero-factory.jpg',
     steel: '/images/hero-steel.jpg',

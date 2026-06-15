@@ -1,44 +1,85 @@
-import { FormEvent, useState } from 'react';
+import { DragEvent, FormEvent, useRef, useState } from 'react';
 import { useI18n } from '../../i18n';
 import { AnimateOnScroll } from '../ui/AnimateOnScroll';
 import { Toast } from '../ui/Toast';
 
-function MapPinIcon() {
+const HAIFA_BAY_MAP_EMBED =
+  'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d53558.2!2d34.965!3d32.819!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151dba3e825f6917%3A0x90042566917c75!2sHaifa%20Bay%2C%20Israel!5e0!3m2!1sen!2sil!4v1710000000000!5m2!1sen!2sil';
+
+const WAZE_DESTINATION = 'Industrial Zone 4, Haifa Bay, Israel';
+const WAZE_NAVIGATION_URL = `https://waze.com/ul?q=${encodeURIComponent(WAZE_DESTINATION)}&navigate=yes`;
+
+const ACCEPTED_FILE_TYPES = '.pdf,.dwg,.zip,application/pdf,application/zip';
+
+interface ContactFormState {
+  name: string;
+  email: string;
+  mobilePhone: string;
+  company: string;
+  message: string;
+  meetingTime: string;
+  attachment: File | null;
+}
+
+const emptyForm = (): ContactFormState => ({
+  name: '',
+  email: '',
+  mobilePhone: '',
+  company: '',
+  message: '',
+  meetingTime: '',
+  attachment: null,
+});
+
+function UploadIcon() {
   return (
-    <svg className="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
+    <svg className="mx-auto mb-2 h-8 w-8 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5m-13.5-9L12 3m0 0l4.5 4.5M12 3v13.5" />
     </svg>
   );
 }
 
-function MailIcon() {
-  return (
-    <svg className="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-    </svg>
-  );
-}
-
-function PhoneIcon() {
-  return (
-    <svg className="h-5 w-5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" />
-    </svg>
-  );
-}
-
-const inputClass =
+const fieldClass =
   'focus-ring w-full rounded-xl border-0 border-b-2 border-transparent bg-slate-50 px-4 py-3.5 text-sm text-slate-800 transition-colors placeholder:text-slate-400 focus:border-[#1a2d4a] focus:bg-white focus:outline-none';
+
+const labelClass = 'mb-2 block font-mono text-[10px] uppercase tracking-widest text-slate-500';
 
 export function CTA() {
   const { t } = useI18n();
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [toastVisible, setToastVisible] = useState(false);
-  const [form, setForm] = useState({ name: '', email: '', company: '', message: '' });
+  const [isDragging, setIsDragging] = useState(false);
+  const [form, setForm] = useState<ContactFormState>(emptyForm);
+
+  const setFile = (file: File | null) => {
+    setForm((prev) => ({ ...prev, attachment: file }));
+  };
+
+  const handleFileInput = (files: FileList | null) => {
+    if (!files?.length) return;
+    setFile(files[0]);
+  };
+
+  const handleDragOver = (e: DragEvent) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+  };
+
+  const handleDrop = (e: DragEvent) => {
+    e.preventDefault();
+    setIsDragging(false);
+    handleFileInput(e.dataTransfer.files);
+  };
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
-    setForm({ name: '', email: '', company: '', message: '' });
+    setForm(emptyForm());
+    if (fileInputRef.current) fileInputRef.current.value = '';
     setToastVisible(true);
   };
 
@@ -69,61 +110,29 @@ export function CTA() {
 
           <AnimateOnScroll delay={0.08}>
             <div className="rounded-2xl border border-slate-100 bg-white p-10 shadow-xl md:p-12">
-              <div className="grid gap-12 lg:grid-cols-2 lg:gap-16 xl:gap-20">
-                <div>
-                  <h3 className="mb-8 font-mono text-xs font-semibold uppercase tracking-[0.25em] text-[#1a2d4a]">
-                    {t.footer.columns.headquarters}
-                  </h3>
-
-                  <ul className="space-y-8">
-                    <li className="flex gap-4">
-                      <span className="mt-0.5 text-[#1a2d4a]">
-                        <MapPinIcon />
-                      </span>
-                      <div>
-                        <p className="mb-1 font-mono text-[10px] font-semibold uppercase tracking-widest text-slate-500">
-                          {t.footer.columns.headquarters}
-                        </p>
-                        <p className="whitespace-pre-line text-sm leading-relaxed text-slate-700 md:text-base">
-                          {t.footer.columns.address}
-                        </p>
-                      </div>
-                    </li>
-
-                    <li className="flex gap-4">
-                      <span className="mt-0.5 text-[#1a2d4a]">
-                        <MailIcon />
-                      </span>
-                      <div>
-                        <p className="mb-1 font-mono text-[10px] font-semibold uppercase tracking-widest text-slate-500">
-                          {t.footer.form.email}
-                        </p>
-                        <a
-                          href={`mailto:${t.footer.columns.email}`}
-                          className="text-sm text-slate-700 transition-colors hover:text-[#1a2d4a] md:text-base"
-                        >
-                          {t.footer.columns.email}
-                        </a>
-                      </div>
-                    </li>
-
-                    <li className="flex gap-4">
-                      <span className="mt-0.5 text-[#1a2d4a]">
-                        <PhoneIcon />
-                      </span>
-                      <div>
-                        <p className="mb-1 font-mono text-[10px] font-semibold uppercase tracking-widest text-slate-500">
-                          {t.footer.columns.phoneLabel}
-                        </p>
-                        <a
-                          href={`tel:${t.footer.columns.phone.replace(/\s/g, '')}`}
-                          className="font-mono text-sm text-slate-700 transition-colors hover:text-[#1a2d4a] md:text-base"
-                        >
-                          {t.footer.columns.phone}
-                        </a>
-                      </div>
-                    </li>
-                  </ul>
+              <div className="grid gap-12 lg:grid-cols-2 lg:items-stretch lg:gap-16 xl:gap-20">
+                <div className="flex flex-col gap-4">
+                  <div className="flex min-h-[350px] flex-1 flex-col overflow-hidden rounded-xl border border-slate-200 shadow-sm lg:min-h-0">
+                    <iframe
+                      title="Haifa Bay Industrial Zone map"
+                      src={HAIFA_BAY_MAP_EMBED}
+                      className="h-full min-h-[350px] w-full flex-1 border-0 grayscale contrast-125 invert-[5%] lg:min-h-[400px]"
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      allowFullScreen
+                    />
+                  </div>
+                  <a
+                    href={WAZE_NAVIGATION_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="focus-ring flex w-full shrink-0 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 font-mono text-[10px] font-semibold uppercase tracking-widest text-[#1a2d4a] transition-colors hover:border-[#1a2d4a] hover:bg-white"
+                  >
+                    {t.cta.wazeNavigate}
+                    <span aria-hidden className="[dir=rtl]:rotate-180">
+                      &rarr;
+                    </span>
+                  </a>
                 </div>
 
                 <div>
@@ -134,53 +143,113 @@ export function CTA() {
                   <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="grid gap-5 sm:grid-cols-2">
                       <label className="block">
-                        <span className="mb-2 block font-mono text-[10px] uppercase tracking-widest text-slate-500">
-                          {t.footer.form.name}
-                        </span>
+                        <span className={labelClass}>{t.footer.form.name}</span>
                         <input
                           type="text"
                           required
                           value={form.name}
                           onChange={(e) => setForm({ ...form, name: e.target.value })}
-                          className={inputClass}
+                          className={fieldClass}
                         />
                       </label>
                       <label className="block">
-                        <span className="mb-2 block font-mono text-[10px] uppercase tracking-widest text-slate-500">
-                          {t.footer.form.email}
-                        </span>
+                        <span className={labelClass}>{t.footer.form.mobilePhone}</span>
+                        <input
+                          type="tel"
+                          value={form.mobilePhone}
+                          onChange={(e) => setForm({ ...form, mobilePhone: e.target.value })}
+                          className={fieldClass}
+                          placeholder="+972"
+                        />
+                      </label>
+                    </div>
+
+                    <div className="grid gap-5 sm:grid-cols-2">
+                      <label className="block">
+                        <span className={labelClass}>{t.footer.form.email}</span>
                         <input
                           type="email"
                           required
                           value={form.email}
                           onChange={(e) => setForm({ ...form, email: e.target.value })}
-                          className={inputClass}
+                          className={fieldClass}
+                        />
+                      </label>
+                      <label className="block">
+                        <span className={labelClass}>{t.footer.form.company}</span>
+                        <input
+                          type="text"
+                          value={form.company}
+                          onChange={(e) => setForm({ ...form, company: e.target.value })}
+                          className={fieldClass}
                         />
                       </label>
                     </div>
+
                     <label className="block">
-                      <span className="mb-2 block font-mono text-[10px] uppercase tracking-widest text-slate-500">
-                        {t.footer.form.company}
-                      </span>
-                      <input
-                        type="text"
-                        value={form.company}
-                        onChange={(e) => setForm({ ...form, company: e.target.value })}
-                        className={inputClass}
-                      />
+                      <span className={labelClass}>{t.footer.form.preferredTime}</span>
+                      <select
+                        value={form.meetingTime}
+                        onChange={(e) => setForm({ ...form, meetingTime: e.target.value })}
+                        className={`${fieldClass} cursor-pointer appearance-none`}
+                      >
+                        <option value="">{t.footer.form.meetingPlaceholder}</option>
+                        {t.footer.form.meetingSlots.map((slot) => (
+                          <option key={slot} value={slot}>
+                            {slot}
+                          </option>
+                        ))}
+                      </select>
                     </label>
+
                     <label className="block">
-                      <span className="mb-2 block font-mono text-[10px] uppercase tracking-widest text-slate-500">
-                        {t.footer.form.message}
-                      </span>
+                      <span className={labelClass}>{t.footer.form.message}</span>
                       <textarea
                         required
-                        rows={4}
+                        rows={8}
                         value={form.message}
                         onChange={(e) => setForm({ ...form, message: e.target.value })}
-                        className={`${inputClass} resize-none`}
+                        className={`${fieldClass} min-h-[12rem] resize-y`}
                       />
                     </label>
+
+                    <div>
+                      <span className={labelClass}>{t.footer.form.attachment}</span>
+                      <div
+                        role="button"
+                        tabIndex={0}
+                        onDragOver={handleDragOver}
+                        onDragLeave={handleDragLeave}
+                        onDrop={handleDrop}
+                        onClick={() => fileInputRef.current?.click()}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            fileInputRef.current?.click();
+                          }
+                        }}
+                        className={`focus-ring cursor-pointer rounded-xl border-2 border-dashed p-4 text-center transition-colors md:p-5 ${
+                          isDragging
+                            ? 'border-[#1a2d4a] bg-white'
+                            : 'border-slate-200 bg-slate-50 hover:border-slate-300 hover:bg-white'
+                        }`}
+                      >
+                        <UploadIcon />
+                        <p className="text-sm text-slate-500">
+                          {form.attachment
+                            ? `${t.footer.form.attachmentSelected}: ${form.attachment.name}`
+                            : t.footer.form.attachmentDrop}
+                        </p>
+                        <input
+                          ref={fileInputRef}
+                          type="file"
+                          accept={ACCEPTED_FILE_TYPES}
+                          className="sr-only"
+                          onChange={(e) => handleFileInput(e.target.files)}
+                        />
+                      </div>
+                    </div>
+
                     <button
                       type="submit"
                       className="focus-ring w-full rounded-xl bg-[#1a2d4a] px-6 py-4 font-mono text-xs font-semibold uppercase tracking-widest text-white transition-colors hover:bg-[#152238]"

@@ -19,21 +19,21 @@ export const en: Translation = {
     slides: [
       {
         tag: 'IRON · STEEL · PIPELINE',
-        title: 'HEAVY INDUSTRIAL\nMASTERY AT\nGLOBAL SCALE',
+        title: 'HEAVY INDUSTRIAL\nMASTERY',
         subtitle:
           'A joint venture forged by Sami Najami and C. Zatout — uniting 82,000 square meters of fabrication capacity with 15,000 tons of annual steel output and full-spectrum EPC execution.',
         cta: 'Explore Combined Power',
       },
       {
         tag: 'EPC COMMAND',
-        title: 'ENGINEERED.\nPROCURED.\nCONSTRUCTED.',
+        title: 'UNIFIED INDUSTRIAL COMMAND',
         subtitle:
           'From structural steel erection to cross-country pipeline installation — integrated delivery under a single industrial command structure with zero interface gaps.',
         cta: 'View Capabilities',
       },
       {
         tag: 'JOINT VENTURE',
-        title: 'TWO FORGES.\nONE FORCE.',
+        title: 'TWO FORGES. ONE FORCE.',
         subtitle:
           'Sami Najami\'s fabrication empire meets C. Zatout\'s pipeline and civil engineering authority. The result: an EPC platform built for national infrastructure mandates.',
         cta: 'Meet the Partners',
@@ -176,8 +176,9 @@ export const en: Translation = {
     label: '06 — Credibility',
     title: 'Top-Tier Industry Rankings',
     subtitle:
-      'Both joint venture partners are officially recognized and ranked among Israel\'s leading engineering and industrial enterprises by DUNS 100.',
-    viewProfile: 'View Verified DUNS 100 Profile',
+      'Both joint venture partners are officially recognized among Israel\'s leading engineering and industrial enterprises by DUNS 100 and BDi CODE 2026.',
+    dunsProfile: 'DUNS 100 Profile',
+    bdiProfile: 'BDI CODE Profile',
     partners: {
       najami: {
         name: 'Sami Najami Engineering',
@@ -198,15 +199,30 @@ export const en: Translation = {
       'Steel structures, pipeline networks, or full EPC mandates — transmit your project brief and our command team will respond within one business day.',
     primary: 'Transmit Project Brief',
     secondary: 'Download JV Capabilities Dossier',
+    wazeNavigate: 'Navigate via Waze',
   },
   footer: {
-    tagline: 'Najami · Zatout — Iron. Steel. Pipeline. EPC.',
+    brandDescription:
+      'Strategic Joint Venture combining world-class industrial fabrication and massive energy/water infrastructure delivery.',
     form: {
       title: 'Contact Command',
       name: 'Full Name',
       email: 'Email Address',
+      mobilePhone: 'Mobile Phone',
       company: 'Organization',
       message: 'Project Brief / Inquiry',
+      attachment: 'Attach Project Brief / Specifications (PDF, DWG, ZIP)',
+      attachmentDrop: 'Drag and drop files here, or click to browse',
+      attachmentSelected: 'File attached',
+      preferredTime: 'Preferred Time for Call / Meeting',
+      meetingPlaceholder: 'Select a time window',
+      meetingSlots: [
+        '08:00 — 10:00',
+        '10:00 — 12:00',
+        '12:00 — 14:00',
+        '14:00 — 16:00',
+        '16:00 — 18:00',
+      ],
       submit: 'Submit Request',
     },
     toast: {
@@ -214,16 +230,21 @@ export const en: Translation = {
       message: 'Your inquiry has been logged. A project director will respond within 24 hours.',
     },
     columns: {
-      headquarters: 'JV Headquarters',
+      headquarters: 'Headquarters',
+      addressLine1: 'Industrial Zone 4, Plot 17-A',
+      addressLine2: 'Haifa Bay, Israel 3109001',
       address: 'Industrial Zone 4, Plot 17-A\nHaifa Bay, Israel 3109001',
+      commercial: 'Commercial Inquiries',
+      telLabel: 'Tel',
+      emailLabel: 'Email',
       phone: '+972 4 855 2200',
       phoneLabel: 'Phone',
       email: 'command@najami-zatout.com',
       navigation: 'Navigation',
       legal: 'Legal',
       privacy: 'Privacy Policy',
-      terms: 'Terms of Engagement',
+      terms: 'Terms of Execution',
     },
-    copyright: '© 2026 Najami · Zatout Joint Venture. All rights reserved.',
+    copyright: '\u00a9 2026 Voltix Website. All Rights Reserved.',
   },
 };

@@ -12,6 +12,8 @@ export function navigate(path: string) {
   window.dispatchEvent(new PopStateEvent('popstate'));
 }
 
+export { absoluteAssetUrl, absoluteUrl, SITE_URL } from './site';
+
 export function navigateToProjects() {
   navigate('/#projects');
 }

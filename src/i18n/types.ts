@@ -92,7 +92,8 @@ export interface Translation {
     label: string;
     title: string;
     subtitle: string;
-    viewProfile: string;
+    dunsProfile: string;
+    bdiProfile: string;
     partners: Record<
       'najami' | 'zatout',
       {
@@ -107,15 +108,23 @@ export interface Translation {
     subtitle: string;
     primary: string;
     secondary: string;
+    wazeNavigate: string;
   };
   footer: {
-    tagline: string;
+    brandDescription: string;
     form: {
       title: string;
       name: string;
       email: string;
+      mobilePhone: string;
       company: string;
       message: string;
+      attachment: string;
+      attachmentDrop: string;
+      attachmentSelected: string;
+      preferredTime: string;
+      meetingPlaceholder: string;
+      meetingSlots: string[];
       submit: string;
     };
     toast: {
@@ -124,7 +133,12 @@ export interface Translation {
     };
     columns: {
       headquarters: string;
+      addressLine1: string;
+      addressLine2: string;
       address: string;
+      commercial: string;
+      telLabel: string;
+      emailLabel: string;
       phone: string;
       phoneLabel: string;
       email: string;

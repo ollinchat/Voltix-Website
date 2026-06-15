@@ -1,13 +1,24 @@
-import { motion } from 'framer-motion';
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 
 interface HeroVideoBackgroundProps {
   src: string;
   poster: string;
   active: boolean;
+  loop?: boolean;
+  onEnded?: () => void;
+  onTimeUpdate?: (currentTime: number, duration: number) => void;
+  onMediaFallback?: () => void;
 }
 
-export function HeroVideoBackground({ src, poster, active }: HeroVideoBackgroundProps) {
+export function HeroVideoBackground({
+  src,
+  poster,
+  active,
+  loop = true,
+  onEnded,
+  onTimeUpdate,
+  onMediaFallback,
+}: HeroVideoBackgroundProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [usePoster, setUsePoster] = useState(false);
 
@@ -18,11 +29,20 @@ export function HeroVideoBackground({ src, poster, active }: HeroVideoBackground
     if (active) {
       setUsePoster(false);
       video.currentTime = 0;
-      video.play().catch(() => setUsePoster(true));
+      video.play().catch(() => {
+        setUsePoster(true);
+        onMediaFallback?.();
+      });
     } else {
       video.pause();
     }
-  }, [active, src]);
+  }, [active, src, onMediaFallback]);
+
+  useEffect(() => {
+    if (usePoster && active) {
+      onMediaFallback?.();
+    }
+  }, [usePoster, active, onMediaFallback]);
 
   if (usePoster) {
     return (
@@ -40,12 +60,23 @@ export function HeroVideoBackground({ src, poster, active }: HeroVideoBackground
       ref={videoRef}
       key={src}
       autoPlay
-      loop
+      loop={loop}
       muted
       playsInline
       poster={poster}
       preload="auto"
-      onError={() => setUsePoster(true)}
+      onError={() => {
+        setUsePoster(true);
+        onMediaFallback?.();
+      }}
+      onEnded={() => {
+        if (active) onEnded?.();
+      }}
+      onTimeUpdate={() => {
+        const video = videoRef.current;
+        if (!video || !active) return;
+        onTimeUpdate?.(video.currentTime, video.duration || 0);
+      }}
       className="absolute inset-0 h-full w-full object-cover"
       aria-hidden
     >
@@ -61,16 +92,13 @@ interface HeroVideoOverlayProps {
 export function HeroVideoOverlay({ className = '' }: HeroVideoOverlayProps) {
   return (
     <div className={`pointer-events-none absolute inset-0 ${className}`} aria-hidden>
-      {/* Subtle VOLTIX brand tint */}
       <div className="absolute inset-0 bg-[#1a2d4a]/[0.05]" />
-      {/* Radial light wash for heading readability */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_50%,rgba(255,255,255,0.92)_0%,rgba(255,255,255,0.75)_45%,rgba(248,250,252,0.55)_100%)]" />
       <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/60 to-white/30" />
     </div>
   );
 }
 
-/** Fade wrapper for slide transitions */
 export function HeroVideoSlide({
   children,
   visible,
@@ -79,13 +107,12 @@ export function HeroVideoSlide({
   visible: boolean;
 }) {
   return (
-    <motion.div
-      initial={false}
-      animate={{ opacity: visible ? 1 : 0 }}
-      transition={{ duration: 1, ease: [0.25, 0.1, 0.25, 1] }}
-      className="absolute inset-0"
+    <div
+      className={`absolute inset-0 transition-opacity duration-1000 ease-out ${
+        visible ? 'opacity-100' : 'opacity-0'
+      }`}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }

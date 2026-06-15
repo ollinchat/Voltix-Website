@@ -2,10 +2,11 @@ import { images } from '../../data/images';
 
 interface LogoProps {
   className?: string;
-  size?: 'sm' | 'md' | 'lg' | 'hero';
+  size?: 'xs' | 'sm' | 'md' | 'lg' | 'hero';
 }
 
 const heights = {
+  xs: 'h-8 max-w-[140px]',
   sm: 'h-9',
   md: 'h-11',
   lg: 'h-16',

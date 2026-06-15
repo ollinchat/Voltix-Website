@@ -9,6 +9,12 @@ Heavy industrial luxury corporate website for the Sami Najami & C. Zatout joint 
 - Framer Motion (mechanical transitions)
 - Full EN/HE bilingual with RTL support
 
+## Production
+
+Live site: [https://voltix-website-psi.vercel.app/](https://voltix-website-psi.vercel.app/)
+
+Set `VITE_SITE_URL` in `.env.production` for canonical URLs, OpenGraph metadata, and absolute asset paths.
+
 ## Run
 
 ```bash

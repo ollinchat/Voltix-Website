@@ -1,4 +1,5 @@
 import { usePathname } from './hooks/usePathname';
+import { SiteMetadata } from './components/layout/SiteMetadata';
 import { getProjectIdFromPath } from './lib/navigation';
 import { HomePage } from './pages/HomePage';
 import { LegalPage } from './pages/LegalPage';
@@ -8,13 +9,16 @@ export default function App() {
   const pathname = usePathname();
   const projectId = getProjectIdFromPath(pathname);
 
-  if (projectId) {
-    return <ProjectPage id={projectId} />;
-  }
-
-  if (pathname === '/legal' || pathname === '/terms') {
-    return <LegalPage />;
-  }
-
-  return <HomePage />;
+  return (
+    <>
+      <SiteMetadata />
+      {projectId ? (
+        <ProjectPage id={projectId} />
+      ) : pathname === '/legal' || pathname === '/terms' ? (
+        <LegalPage />
+      ) : (
+        <HomePage />
+      )}
+    </>
+  );
 }

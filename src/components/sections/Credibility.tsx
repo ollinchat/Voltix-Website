@@ -1,31 +1,29 @@
+import { CREDIBILITY_PROFILES, type CredibilityPartnerId } from '../../data/credibility';
+import { images } from '../../data/images';
 import { useI18n } from '../../i18n';
-import { DUNS_PROFILE_URLS, type CredibilityPartnerId } from '../../data/credibility';
 import { AnimateOnScroll } from '../ui/AnimateOnScroll';
 
 const PARTNER_ORDER: CredibilityPartnerId[] = ['najami', 'zatout'];
 
-function DunsBadge() {
+function RankingBadges() {
   return (
-    <div
-      className="mb-6 inline-flex items-stretch overflow-hidden border border-[#003366] shadow-sm"
-      aria-label="DUNS 100 ranked enterprise"
-    >
-      <div className="flex items-center bg-[#003366] px-3 py-2">
-        <span className="font-serif text-lg font-bold leading-none tracking-tight text-[#C5A028]">
-          D&amp;B
-        </span>
-      </div>
-      <div className="flex flex-col justify-center bg-gradient-to-r from-[#003366] to-[#004C8C] px-3 py-1.5">
-        <span className="font-mono text-[9px] font-semibold uppercase leading-tight tracking-[0.2em] text-white/90">
-          DUNS
-        </span>
-        <span className="font-mono text-sm font-black leading-none tracking-wide text-[#C5A028]">
-          100
-        </span>
-      </div>
+    <div className="mb-4 inline-flex items-center gap-3 self-start rounded-lg border border-slate-200/60 bg-slate-50 px-3 py-2">
+      <img
+        src={images.credibility.duns100}
+        alt="DUNS 100 — The Standard of Achievement"
+        className="h-9 w-auto object-contain object-left"
+      />
+      <img
+        src={images.credibility.bdiCode2026}
+        alt="BDi CODE 2026 — Leading Companies"
+        className="h-9 w-auto object-contain object-left"
+      />
     </div>
   );
 }
+
+const profileButtonBase =
+  'focus-ring inline-flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-center font-mono text-[10px] font-semibold uppercase tracking-widest transition-colors md:text-xs';
 
 export function Credibility() {
   const { t } = useI18n();
@@ -50,27 +48,42 @@ export function Credibility() {
         <div className="grid gap-8 md:grid-cols-2">
           {PARTNER_ORDER.map((partnerId, i) => {
             const partner = t.credibility.partners[partnerId];
+            const profiles = CREDIBILITY_PROFILES[partnerId];
+
             return (
               <AnimateOnScroll key={partnerId} delay={i * 0.1}>
-                <article className="flex h-full flex-col border border-slate-100 border-s-4 border-s-[#1a2d4a] bg-white p-8 shadow-md md:p-10">
-                  <DunsBadge />
+                <article className="flex h-full flex-col border border-slate-100 border-s-4 border-s-[#1a2d4a] bg-white p-8 shadow-md">
+                  <RankingBadges />
                   <h3 className="mb-4 text-xl font-black uppercase tracking-wide text-[#1a2d4a] md:text-2xl">
                     {partner.name}
                   </h3>
                   <p className="mb-8 flex-1 text-sm leading-relaxed text-slate-600 md:text-base">
                     {partner.description}
                   </p>
-                  <a
-                    href={DUNS_PROFILE_URLS[partnerId]}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="focus-ring inline-flex items-center gap-2 border border-slate-200 bg-slate-50 px-5 py-3 font-mono text-[10px] font-semibold uppercase tracking-widest text-[#1a2d4a] transition-colors hover:border-[#1a2d4a] hover:bg-white md:text-xs"
-                  >
-                    {t.credibility.viewProfile}
-                    <span aria-hidden className="[dir=rtl]:rotate-180">
-                      &rarr;
-                    </span>
-                  </a>
+                  <div className="grid grid-cols-2 gap-4">
+                    <a
+                      href={profiles.duns}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${profileButtonBase} bg-[#1a2d4a] text-white hover:bg-[#152238]`}
+                    >
+                      {t.credibility.dunsProfile}
+                      <span aria-hidden className="[dir=rtl]:rotate-180">
+                        &rarr;
+                      </span>
+                    </a>
+                    <a
+                      href={profiles.bdi}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={`${profileButtonBase} border border-slate-200 bg-white text-[#1a2d4a] hover:border-[#1a2d4a] hover:bg-slate-50`}
+                    >
+                      {t.credibility.bdiProfile}
+                      <span aria-hidden className="[dir=rtl]:rotate-180">
+                        &rarr;
+                      </span>
+                    </a>
+                  </div>
                 </article>
               </AnimateOnScroll>
             );

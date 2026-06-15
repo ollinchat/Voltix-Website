@@ -134,8 +134,9 @@ export const ru: Translation = {
     label: '06 — Reputatsiya',
     title: 'Reytingi promyshlennosti vysshego urovnya',
     subtitle:
-      'Oba partnera JV oficialno priznany i vkhodyat v reyting vedushchikh inzhenernykh i promyshlennykh predpriyatiy Izrailya po DUNS 100.',
-    viewProfile: 'Smotret podtverzhdennyy profil DUNS 100',
+      'Oba partnera JV oficialno priznany sredi vedushchikh inzhenernykh i promyshlennykh predpriyatiy Izrailya po reytingam DUNS 100 i BDi CODE 2026.',
+    dunsProfile: 'DUNS 100 Profile',
+    bdiProfile: 'BDI CODE Profile',
     partners: {
       najami: {
         name: 'Sami Najami Engineering',
@@ -157,15 +158,23 @@ export const ru: Translation = {
       'Stalnye konstruktsii, truboprovodnye seti ili polnye mandaty EPC — otpravte brif, i nasha komanda otvetit v techenie odnogo rabochego dnya.',
     primary: 'Otpravit brif proekta',
     secondary: 'Skachat dossie vozmozhnostey JV',
+    wazeNavigate: 'Navigate via Waze',
   },
   footer: {
     ...en.footer,
     form: {
+      ...en.footer.form,
       title: 'Svyaz s komandoy',
       name: 'Polnoe imya',
       email: 'Elektronnaya pochta',
+      mobilePhone: 'Mobilny telefon',
       company: 'Organizatsiya',
       message: 'Brif proekta / zapros',
+      attachment: 'Prikrepit brif proekta / spetsifikatsii (PDF, DWG, ZIP)',
+      attachmentDrop: 'Peretashchite fayly syuda ili nazhmite dlya vybora',
+      attachmentSelected: 'Fayl prikreplen',
+      preferredTime: 'Predpochtitelnoe vremya zvonka / vstrechi',
+      meetingPlaceholder: 'Vyberite vremennoe okno',
       submit: 'Otpravit',
     },
     toast: {
@@ -178,8 +187,8 @@ export const ru: Translation = {
       navigation: 'Navigatsiya',
       legal: 'Pravovaya informatsiya',
       privacy: 'Politika konfidentsialnosti',
-      terms: 'Usloviya sotrudnichestva',
+      terms: 'Usloviya ispolneniya',
     },
-    copyright: '© 2026 Najami · Zatout Joint Venture. Vse prava zashchishcheny.',
+    copyright: '\u00a9 2026 Voltix Website. Vse prava zashchishcheny.',
   },
 };
