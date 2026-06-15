@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
 
 interface IndustrialImageProps {
   src: string;
@@ -6,6 +7,7 @@ interface IndustrialImageProps {
   className?: string;
   overlay?: 'heavy' | 'medium' | 'light';
   animate?: boolean;
+  fallbackSrc?: string;
 }
 
 const overlays = {
@@ -20,7 +22,20 @@ export function IndustrialImage({
   className = '',
   overlay = 'medium',
   animate = false,
+  fallbackSrc,
 }: IndustrialImageProps) {
+  const [activeSrc, setActiveSrc] = useState(src);
+
+  useEffect(() => {
+    setActiveSrc(src);
+  }, [src]);
+
+  const handleError = () => {
+    if (fallbackSrc && activeSrc !== fallbackSrc) {
+      setActiveSrc(fallbackSrc);
+    }
+  };
+
   const Img = animate ? motion.img : 'img';
   const animProps = animate
     ? {
@@ -33,8 +48,9 @@ export function IndustrialImage({
   return (
     <div className={`relative overflow-hidden bg-slate-100 ${className}`}>
       <Img
-        src={src}
+        src={activeSrc}
         alt={alt}
+        onError={handleError}
         className="absolute inset-0 h-full w-full object-cover brightness-105 saturate-[0.9]"
         {...animProps}
       />

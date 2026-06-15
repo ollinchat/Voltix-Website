@@ -7,7 +7,10 @@ export const images = {
     '/images/hero-factory.jpg',
     '/images/hero-pipeline.jpg',
   ],
-  about: '/images/about-factory.jpg',
+  about: '/images/about-industrial.jpg',
+  /** Remote fallback if the local about image is missing or fails to load */
+  aboutFallback:
+    'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1920&q=85',
   synergy: {
     najami: '/images/synergy-steel.jpg',
     zatout: '/images/synergy-pipeline.jpg',
