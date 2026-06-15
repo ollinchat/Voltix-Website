@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    border-radius: 0 !important;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-white font-sans text-slate-900 antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-slate-800 text-white;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-slate-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-slate-800;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply border border-slate-200 bg-white/90 shadow-md backdrop-blur-sm;
+  }
+
+  .glass-panel-strong {
+    @apply border border-slate-200 bg-white shadow-lg backdrop-blur-md;
+  }
+
+  .section-padding {
+    @apply px-6 py-24 md:px-12 lg:px-20 xl:px-28;
+  }
+
+  .section-alt {
+    @apply bg-slate-50;
+  }
+
+  .command-grid {
+    background-image:
+      linear-gradient(rgba(26, 45, 74, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26, 45, 74, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .blueprint-grid {
+    background-image:
+      linear-gradient(rgba(26, 45, 74, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(26, 45, 74, 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  .blueprint-frame {
+    position: relative;
+  }
+
+  .blueprint-frame::before,
+  .blueprint-frame::after {
+    content: '';
+    position: absolute;
+    pointer-events: none;
+    border-color: rgba(26, 45, 74, 0.15);
+  }
+
+  .blueprint-frame::before {
+    inset: 12px;
+    border: 1px solid;
+    border-style: dashed;
+  }
+
+  .blueprint-frame::after {
+    top: 12px;
+    left: 12px;
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid;
+    border-left: 1px solid;
+  }
+
+  .text-gradient-voltix {
+    @apply bg-gradient-to-r from-slate-800 via-slate-700 to-slate-600 bg-clip-text text-transparent;
+  }
+
+  .industrial-label {
+    @apply font-mono text-[10px] font-medium uppercase tracking-[0.25em] text-slate-800;
+  }
+
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-800/30 focus-visible:ring-offset-2 focus-visible:ring-offset-white;
+  }
+
+  .legal-prose p {
+    @apply text-slate-700;
+    line-height: 1.85;
+  }
+}
+
+@layer utilities {
+  .rtl-flip {
+    [dir='rtl'] & {
+      transform: scaleX(-1);
+    }
+  }
+}
