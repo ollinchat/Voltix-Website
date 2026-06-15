@@ -37,19 +37,10 @@ export interface Translation {
     label: string;
     title: string;
     subtitle: string;
-    tabs: {
-      all: string;
-      najami: string;
-      zatout: string;
+    alliance: {
+      heading: string;
+      body: string;
     };
-    combinedPower: string;
-    metrics: Array<{ value: string; unit: string; label: string }>;
-    partners: Array<{
-      name: string;
-      role: string;
-      expertise: string;
-      description: string;
-    }>;
   };
   team: {
     label: string;

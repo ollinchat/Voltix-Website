@@ -75,33 +75,11 @@ export const en: Translation = {
     title: 'Unmatched EPC Force',
     subtitle:
       'Sami Najami and C. Zatout — two industrial principals whose combined assets create an EPC platform without parallel in the region.',
-    tabs: {
-      all: 'Joint Venture Capability',
-      najami: 'Sami Najami',
-      zatout: 'C. Zatout',
+    alliance: {
+      heading: 'A Unified Industrial Front',
+      body:
+        'The strategic alliance between Sami Najami and C. Zatout merges world-class fabrication capabilities with massive EPC infrastructure delivery. By combining two industrial powerhouses into one command structure, we eliminate interface gaps and provide a single point of responsibility for the region\'s most complex energy and water projects.',
     },
-    combinedPower: 'Aggregate JV Capability',
-    metrics: [
-      { value: '82,000', unit: 'SQM', label: 'Integrated Factory Complex' },
-      { value: '15,000', unit: 'TONS', label: 'Annual Steel Production Capacity' },
-      { value: 'FULL', unit: 'EPC', label: 'Engineering · Procurement · Construction' },
-    ],
-    partners: [
-      {
-        name: 'Sami Najami',
-        role: 'Principal — Steel & Fabrication',
-        expertise: 'Structural Steel · Pressure Vessels · Heavy Fabrication',
-        description:
-          'Architect of an 82,000 sqm industrial manufacturing complex with integrated rolling mills, CNC cutting bays, and automated welding lines. Najami\'s facilities have supplied structural steel for power plants, refineries, and high-rise cores across the Levant and Gulf regions for over two decades.',
-      },
-      {
-        name: 'C. Zatout',
-        role: 'Principal — Heavy Mechanical & Industrial Piping',
-        expertise: 'Heavy Mechanical Works · Industrial Piping · Energy & Chemical Plant Infrastructure',
-        description:
-          'Veteran EPC principal specializing in heavy mechanical erection, industrial piping systems, and energy and chemical plant infrastructure. Zatout commands ASME-compliant pipeline networks, process piping for refineries and petrochemical facilities, and the civil-mechanical integration required for on-schedule plant commissioning.',
-      },
-    ],
   },
   team: {
     label: '03 — Leadership',

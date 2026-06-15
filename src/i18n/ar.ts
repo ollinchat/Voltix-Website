@@ -59,18 +59,10 @@ export const ar: Translation = {
     label: '02 \u2014 \u062a\u0648\u0627\u0632\u0646 JV',
     title: '\u0642\u0648\u0629 EPC \u0644\u0627 \u0645\u062b\u064a\u0644 \u0644\u0647\u0627',
     subtitle: en.synergy.subtitle,
-    tabs: {
-      all: '\u0642\u062f\u0631\u0627\u062a \u0627\u0644\u0645\u0634\u0631\u0648\u0639 \u0627\u0644\u0645\u0634\u062a\u0631\u0643',
-      najami: 'Sami Najami',
-      zatout: 'C. Zatout',
+    alliance: {
+      heading: 'A Unified Industrial Front',
+      body: en.synergy.alliance.body,
     },
-    combinedPower: '\u0627\u0644\u0642\u062f\u0631\u0629 \u0627\u0644\u062a\u0631\u0627\u0643\u0645\u064a\u0629 \u0644\u0644\u0645\u0634\u0631\u0648\u0639',
-    metrics: [
-      { value: '82,000', unit: '\u0645\u00b2', label: '\u0645\u062c\u0645\u0639 \u0645\u0635\u0627\u0646\u0639 \u0645\u062a\u0643\u0627\u0645\u0644' },
-      { value: '15,000', unit: '\u0637\u0646', label: '\u0627\u0644\u0637\u0627\u0642\u0629 \u0627\u0644\u0625\u0646\u062a\u0627\u062c\u064a\u0629 \u0627\u0644\u0633\u0646\u0648\u064a\u0629 \u0644\u0644\u0641\u0648\u0644\u0627\u0630' },
-      { value: '\u0643\u0627\u0645\u0644', unit: 'EPC', label: '\u0647\u0646\u062f\u0633\u0629 \u00b7 \u062a\u0648\u0631\u064a\u062f \u00b7 \u0628\u0646\u0627\u0621' },
-    ],
-    partners: en.synergy.partners,
   },
   team: {
     ...en.team,
