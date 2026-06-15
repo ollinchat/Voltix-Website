@@ -6,41 +6,30 @@ export function About() {
   const { t } = useI18n();
 
   return (
-    <section id="about" className="relative section-padding section-alt">
+    <section id="about" className="section-alt relative py-12 md:py-16">
       <div className="absolute inset-0 blueprint-grid opacity-50" />
 
-      <div className="relative mx-auto max-w-[1600px]">
+      <div className="relative mx-auto max-w-5xl px-6 md:px-12">
         <AnimateOnScroll>
-          <div className="mb-16 max-w-5xl lg:mb-20">
-            <span className="industrial-label mb-6 block">{t.about.label}</span>
-            <h2 className="mb-8 whitespace-pre-line text-5xl font-black uppercase leading-[0.92] tracking-wide text-voltix-900 sm:text-6xl md:text-7xl lg:text-8xl">
+          <div className="mb-10">
+            <span className="industrial-label mb-4 block">{t.about.label}</span>
+            <h2 className="whitespace-pre-line text-3xl font-black uppercase leading-tight tracking-wide text-voltix-900 md:text-4xl">
               {t.about.title}
             </h2>
-            <p className="max-w-3xl text-lg leading-relaxed text-voltix-500 md:text-xl">
-              {t.about.subtitle}
-            </p>
-          </div>
-        </AnimateOnScroll>
-
-        <AnimateOnScroll delay={0.08}>
-          <div className="blueprint-frame mb-16 max-w-4xl border border-voltix-200 bg-white p-8 shadow-panel md:mb-20 md:p-10 lg:p-12">
-            <p className="mb-6 text-lg leading-relaxed text-voltix-800 md:text-xl">
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-600">
               {t.about.description}
             </p>
-            <p className="border-s-2 border-voltix-600 ps-6 text-sm leading-relaxed text-voltix-500 md:text-base">
-              {t.about.narrative}
-            </p>
           </div>
         </AnimateOnScroll>
 
-        <div className="mb-16 grid grid-cols-2 gap-4 md:mb-20 lg:grid-cols-4">
+        <div className="mb-10 grid grid-cols-2 gap-3 lg:grid-cols-4">
           {t.about.stats.map((stat, i) => (
-            <AnimateOnScroll key={stat.label} delay={i * 0.06}>
-              <GlassPanel className="h-full p-6 md:p-8">
-                <div className="font-mono text-3xl font-bold text-voltix-600 md:text-4xl">
+            <AnimateOnScroll key={stat.label} delay={i * 0.05}>
+              <GlassPanel className="h-full p-5 md:p-6">
+                <div className="font-mono text-2xl font-bold text-voltix-600 md:text-3xl">
                   {stat.value}
                 </div>
-                <div className="mt-2 font-mono text-[10px] uppercase tracking-widest text-voltix-500">
+                <div className="mt-1.5 font-mono text-[10px] uppercase tracking-widest text-voltix-500">
                   {stat.label}
                 </div>
               </GlassPanel>
@@ -48,20 +37,20 @@ export function About() {
           ))}
         </div>
 
-        <div className="grid gap-4 md:grid-cols-3">
+        <div className="grid gap-3 md:grid-cols-3">
           {t.about.pillars.map((pillar, i) => (
-            <AnimateOnScroll key={pillar.title} delay={i * 0.08}>
-              <GlassPanel strong className="group h-full p-8 transition-shadow hover:shadow-card md:p-10">
-                <div className="mb-5 flex items-center gap-4">
+            <AnimateOnScroll key={pillar.title} delay={i * 0.06}>
+              <GlassPanel strong className="group h-full p-6 md:p-7">
+                <div className="mb-4 flex items-center gap-3">
                   <span className="font-mono text-xs text-voltix-600">
                     {String(i + 1).padStart(2, '0')}
                   </span>
                   <div className="h-px flex-1 bg-voltix-200 transition-colors group-hover:bg-voltix-600" />
                 </div>
-                <h3 className="mb-3 text-xl font-black uppercase tracking-wide text-voltix-900">
+                <h3 className="mb-2 text-base font-black uppercase tracking-wide text-voltix-900 md:text-lg">
                   {pillar.title}
                 </h3>
-                <p className="text-sm leading-relaxed text-voltix-500 md:text-base">
+                <p className="text-sm leading-relaxed text-voltix-500">
                   {pillar.description}
                 </p>
               </GlassPanel>

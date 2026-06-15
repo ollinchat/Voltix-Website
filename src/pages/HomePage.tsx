@@ -4,7 +4,7 @@ import { HeroSlider } from '../components/sections/HeroSlider';
 import { About } from '../components/sections/About';
 import { Synergy } from '../components/sections/Synergy';
 import { Team } from '../components/sections/Team';
-import { Services } from '../components/sections/Services';
+import { Projects } from '../components/sections/Projects';
 import { Portfolio } from '../components/sections/Portfolio';
 import { Blog } from '../components/sections/Blog';
 import { CTA } from '../components/sections/CTA';
@@ -17,7 +17,7 @@ export function HomePage() {
         <HeroSlider />
         <About />
         <Synergy />
-        <Services />
+        <Projects />
         <Team />
         <Portfolio />
         <Blog />

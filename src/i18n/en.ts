@@ -9,7 +9,7 @@ export const en: Translation = {
     about: 'About',
     synergy: 'JV Synergy',
     team: 'Team',
-    services: 'Services',
+    projects: 'Projects',
     portfolio: 'Portfolio',
     blog: 'Insights',
     contact: 'Contact',
@@ -44,11 +44,8 @@ export const en: Translation = {
   about: {
     label: '01 — About',
     title: 'Built in Steel.\nDriven by Precision.',
-    subtitle: 'Heavy industrial luxury — where iron mastery meets engineering discipline.',
     description:
-      'Najami · Zatout is a strategic joint venture between two of the region\'s most formidable industrial operators. Together, they command one of the largest privately held steel fabrication and EPC platforms in the Eastern Mediterranean — engineered for projects that demand structural certainty at scale.',
-    narrative:
-      'Where others subcontract risk, we internalize it. Our 82,000 square meter manufacturing campus operates continuous-flow production lines for structural steel, pressure vessels, and pipeline components. Fifteen thousand tons of steel pass through our facilities annually — each weld traceable, each beam load-certified, each spool hydro-tested before it leaves the yard. This is not consulting. This is industrial execution at the weight class that moves economies.',
+      'Najami · Zatout is a strategic industrial joint venture built for projects that demand structural certainty at scale. We deliver top-tier steel fabrication and integrated EPC execution under one command — risk internalized, quality certified, delivery assured.',
     stats: [
       { value: '82K', label: 'Sqm Factory Footprint' },
       { value: '15K', label: 'Tons Steel / Year' },
@@ -75,9 +72,14 @@ export const en: Translation = {
   },
   synergy: {
     label: '02 — JV Synergy',
-    title: 'Combined Power',
+    title: 'Unmatched EPC Force',
     subtitle:
       'Sami Najami and C. Zatout — two industrial principals whose combined assets create an EPC platform without parallel in the region.',
+    tabs: {
+      all: 'Joint Venture Capability',
+      najami: 'Sami Najami',
+      zatout: 'C. Zatout',
+    },
     combinedPower: 'Aggregate JV Capability',
     metrics: [
       { value: '82,000', unit: 'SQM', label: 'Integrated Factory Complex' },
@@ -94,13 +96,12 @@ export const en: Translation = {
       },
       {
         name: 'C. Zatout',
-        role: 'Principal — Pipeline & EPC',
-        expertise: 'Pipeline Engineering · Civil Works · EPC Management',
+        role: 'Principal — Heavy Mechanical & Industrial Piping',
+        expertise: 'Heavy Mechanical Works · Industrial Piping · Energy & Chemical Plant Infrastructure',
         description:
-          'Veteran EPC director with command authority over cross-country pipeline projects, pump station construction, and industrial civil infrastructure. Zatout brings ASME-compliant pipeline installation capability and a proven record of on-schedule commissioning on water, energy, and petrochemical networks.',
+          'Veteran EPC principal specializing in heavy mechanical erection, industrial piping systems, and energy and chemical plant infrastructure. Zatout commands ASME-compliant pipeline networks, process piping for refineries and petrochemical facilities, and the civil-mechanical integration required for on-schedule plant commissioning.',
       },
     ],
-    equation: 'Najami Fabrication + Zatout Pipeline = Unmatched EPC Force',
   },
   team: {
     label: '03 — Leadership',
@@ -115,48 +116,18 @@ export const en: Translation = {
       { name: 'M. Sabbagh', role: 'Commercial Director', specialty: 'Procurement & Contracts' },
     ],
   },
-  services: {
-    label: '04 — Services',
-    title: 'Industrial Disciplines',
-    subtitle: 'Three core execution verticals — each backed by in-house capacity, not outsourced promise.',
-    items: [
-      {
-        code: 'SVC-EPC',
-        title: 'EPC',
-        description:
-          'Full Engineering, Procurement, and Construction under a single contract framework. Our EPC division manages multi-disciplinary design teams, global equipment sourcing, subcontractor governance, and commissioning — delivering turnkey industrial facilities from concept to energization.',
-        capabilities: [
-          'FEED & Detailed Engineering',
-          'Equipment Procurement & Expediting',
-          'Construction Management',
-          'Pre-Commissioning & Handover',
-        ],
-      },
-      {
-        code: 'SVC-STL',
-        title: 'Iron Construction',
-        description:
-          'Structural steel fabrication and erection at industrial scale. Our 82,000 sqm factory complex produces beams, trusses, pipe racks, pressure vessels, and modular skids — with 15,000 tons of annual throughput capacity and EN 1090 EXC3 certification.',
-        capabilities: [
-          'Structural Steel Fabrication',
-          'Heavy Plate & Vessel Work',
-          'On-Site Steel Erection',
-          'Coating & Corrosion Protection',
-        ],
-      },
-      {
-        code: 'SVC-PLN',
-        title: 'Pipeline Works',
-        description:
-          'Design, supply, and installation of pipeline networks for water transmission, oil and gas distribution, and industrial process lines. From route survey and HDD bore to welded tie-ins and hydrostatic testing — full ASME B31 and API 1104 compliance.',
-        capabilities: [
-          'Cross-Country Pipeline Installation',
-          'HDD & Trenchless Methods',
-          'Pump & Valve Stations',
-          'Hydrostatic Testing & Commissioning',
-        ],
-      },
-    ],
+  projects: {
+    label: '04 — Projects',
+    title: 'Industrial Proven Execution',
+    modal: {
+      datasheet: 'Project Data Sheet',
+      projectName: 'Project Name',
+      client: 'Contracting Client',
+      timeline: 'Exact Timeline',
+      location: 'Location & Region',
+      scope: 'Full Engineering Scope / Technical Description',
+      close: 'Close',
+    },
   },
   portfolio: {
     label: '05 — Portfolio',

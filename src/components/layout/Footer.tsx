@@ -23,7 +23,7 @@ export function Footer() {
   const navLinks = [
     { id: 'about', label: t.nav.about },
     { id: 'synergy', label: t.nav.synergy },
-    { id: 'services', label: t.nav.services },
+    { id: 'projects', label: t.nav.projects },
     { id: 'portfolio', label: t.nav.portfolio },
   ];
 

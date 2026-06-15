@@ -5,7 +5,7 @@ import { useScrollSpy } from '../../hooks/useScrollSpy';
 import { LanguageToggle } from '../ui/LanguageToggle';
 import { Logo } from '../ui/Logo';
 
-const SECTION_IDS = ['about', 'synergy', 'services', 'team', 'portfolio', 'blog', 'contact'];
+const SECTION_IDS = ['about', 'synergy', 'projects', 'team', 'portfolio', 'blog', 'contact'];
 
 export function Header() {
   const { t } = useI18n();
@@ -22,7 +22,7 @@ export function Header() {
   const navItems = [
     { id: 'about', label: t.nav.about },
     { id: 'synergy', label: t.nav.synergy },
-    { id: 'services', label: t.nav.services },
+    { id: 'projects', label: t.nav.projects },
     { id: 'team', label: t.nav.team },
     { id: 'portfolio', label: t.nav.portfolio },
     { id: 'blog', label: t.nav.blog },

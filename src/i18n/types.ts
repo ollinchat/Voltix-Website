@@ -11,7 +11,7 @@ export interface Translation {
     about: string;
     synergy: string;
     team: string;
-    services: string;
+    projects: string;
     portfolio: string;
     blog: string;
     contact: string;
@@ -29,9 +29,7 @@ export interface Translation {
   about: {
     label: string;
     title: string;
-    subtitle: string;
     description: string;
-    narrative: string;
     stats: Array<{ value: string; label: string }>;
     pillars: Array<{ title: string; description: string }>;
   };
@@ -39,6 +37,11 @@ export interface Translation {
     label: string;
     title: string;
     subtitle: string;
+    tabs: {
+      all: string;
+      najami: string;
+      zatout: string;
+    };
     combinedPower: string;
     metrics: Array<{ value: string; unit: string; label: string }>;
     partners: Array<{
@@ -47,7 +50,6 @@ export interface Translation {
       expertise: string;
       description: string;
     }>;
-    equation: string;
   };
   team: {
     label: string;
@@ -59,16 +61,18 @@ export interface Translation {
       specialty: string;
     }>;
   };
-  services: {
+  projects: {
     label: string;
     title: string;
-    subtitle: string;
-    items: Array<{
-      code: string;
-      title: string;
-      description: string;
-      capabilities: string[];
-    }>;
+    modal: {
+      datasheet: string;
+      projectName: string;
+      client: string;
+      timeline: string;
+      location: string;
+      scope: string;
+      close: string;
+    };
   };
   portfolio: {
     label: string;

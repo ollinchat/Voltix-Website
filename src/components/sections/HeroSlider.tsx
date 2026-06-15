@@ -106,8 +106,8 @@ export function HeroSlider() {
                   <Button onClick={() => scrollTo(current === 2 ? 'synergy' : 'contact')}>
                     {slides[current].cta}
                   </Button>
-                  <Button variant="secondary" onClick={() => scrollTo('services')}>
-                    {t.nav.services}
+                  <Button variant="secondary" onClick={() => scrollTo('projects')}>
+                    {t.nav.projects}
                   </Button>
                 </div>
               </motion.div>
