@@ -5,7 +5,7 @@ import { useScrollSpy } from '../../hooks/useScrollSpy';
 import { LanguageToggle } from '../ui/LanguageToggle';
 import { Logo } from '../ui/Logo';
 
-const SECTION_IDS = ['about', 'synergy', 'projects', 'team', 'portfolio', 'blog', 'contact'];
+const SECTION_IDS = ['about', 'synergy', 'projects', 'team', 'portfolio', 'credibility', 'contact'];
 
 export function Header() {
   const { t } = useI18n();
@@ -25,7 +25,7 @@ export function Header() {
     { id: 'projects', label: t.nav.projects },
     { id: 'team', label: t.nav.team },
     { id: 'portfolio', label: t.nav.portfolio },
-    { id: 'blog', label: t.nav.blog },
+    { id: 'credibility', label: t.nav.credibility },
   ];
 
   const scrollTo = (id: string) => {

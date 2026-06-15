@@ -1,4 +1,4 @@
-export type Locale = 'en' | 'he';
+export type Locale = 'en' | 'he' | 'ru' | 'ar';
 
 export type PortfolioCategory = 'energy' | 'steel' | 'water';
 
@@ -13,7 +13,7 @@ export interface Translation {
     team: string;
     projects: string;
     portfolio: string;
-    blog: string;
+    credibility: string;
     contact: string;
     joinUs: string;
   };
@@ -64,14 +64,14 @@ export interface Translation {
   projects: {
     label: string;
     title: string;
-    modal: {
+    backToProjects: string;
+    detail: {
       datasheet: string;
       projectName: string;
       client: string;
       timeline: string;
       location: string;
       scope: string;
-      close: string;
     };
   };
   portfolio: {
@@ -79,28 +79,27 @@ export interface Translation {
     title: string;
     subtitle: string;
     filters: Record<PortfolioCategory, string>;
-    all: string;
-    projects: Array<{
-      category: PortfolioCategory;
-      sector: string;
-      title: string;
-      location: string;
-      capacity: string;
-    }>;
-    viewAll: string;
+    coreExpertise: string;
+    sectors: Record<
+      PortfolioCategory,
+      {
+        summary: string;
+        expertise: string[];
+      }
+    >;
   };
-  blog: {
+  credibility: {
     label: string;
     title: string;
     subtitle: string;
-    posts: Array<{
-      date: string;
-      category: string;
-      title: string;
-      excerpt: string;
-      readTime: string;
-    }>;
-    readMore: string;
+    viewProfile: string;
+    partners: Record<
+      'najami' | 'zatout',
+      {
+        name: string;
+        description: string;
+      }
+    >;
   };
   cta: {
     label: string;
@@ -127,6 +126,7 @@ export interface Translation {
       headquarters: string;
       address: string;
       phone: string;
+      phoneLabel: string;
       email: string;
       navigation: string;
       legal: string;

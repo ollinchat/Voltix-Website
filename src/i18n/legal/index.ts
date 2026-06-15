@@ -3,13 +3,13 @@ import { legalEn } from './en';
 import { legalHe } from './he';
 import type { LegalDocument } from './types';
 
-const legalDocs: Record<Locale, LegalDocument> = {
+const legalDocs: Partial<Record<Locale, LegalDocument>> = {
   en: legalEn,
   he: legalHe,
 };
 
 export function getLegalDocument(locale: Locale): LegalDocument {
-  return legalDocs[locale];
+  return legalDocs[locale] ?? legalEn;
 }
 
 export type { LegalDocument, LegalSection } from './types';

@@ -11,7 +11,7 @@ export const en: Translation = {
     team: 'Team',
     projects: 'Projects',
     portfolio: 'Portfolio',
-    blog: 'Insights',
+    credibility: 'Credibility',
     contact: 'Contact',
     joinUs: 'Join Us',
   },
@@ -119,14 +119,14 @@ export const en: Translation = {
   projects: {
     label: '04 — Projects',
     title: 'Industrial Proven Execution',
-    modal: {
+    backToProjects: '← Back to Projects',
+    detail: {
       datasheet: 'Project Data Sheet',
       projectName: 'Project Name',
       client: 'Contracting Client',
       timeline: 'Exact Timeline',
       location: 'Location & Region',
       scope: 'Full Engineering Scope / Technical Description',
-      close: 'Close',
     },
   },
   portfolio: {
@@ -138,84 +138,58 @@ export const en: Translation = {
       steel: 'Steel',
       water: 'Water',
     },
-    all: 'All Sectors',
-    projects: [
-      {
-        category: 'energy',
-        sector: 'POWER GENERATION',
-        title: '400MW CCGT Steel Superstructure',
-        location: 'Northern Industrial Zone',
-        capacity: '12,400 tons structural steel',
+    coreExpertise: 'Core Expertise',
+    sectors: {
+      energy: {
+        summary:
+          'The Najami · Zatout joint venture delivers integrated EPC execution across power generation, refining, and petrochemical infrastructure — combining 82,000 sqm of in-house fabrication with ASME-compliant process piping and a proven record of on-schedule energization at national scale.',
+        expertise: [
+          'High-pressure steam and process piping systems',
+          'Power plant structural steel and pipe rack networks',
+          'Refinery turnaround mechanical works',
+          'Petrochemical facility EPC integration',
+        ],
       },
-      {
-        category: 'energy',
-        sector: 'REFINERY',
-        title: 'Crude Pipeline & Pipe Rack Network',
-        location: 'Coastal Refinery Complex',
-        capacity: '48 km / 24" diameter',
+      steel: {
+        summary:
+          'With 15,000 tons of annual structural steel throughput and EN 1090-certified fabrication lines, the JV commands end-to-end delivery of heavy steel packages — from rolling and CNC cutting through on-site erection — eliminating interface risk on mission-critical structural paths.',
+        expertise: [
+          'Structural steel fabrication at industrial scale',
+          'Pressure vessels and heavy plate assemblies',
+          'High-rise and industrial core steel erection',
+          'ISO 3834 / EN 1090 certified welding & coating',
+        ],
       },
-      {
-        category: 'steel',
-        sector: 'HEAVY FABRICATION',
-        title: 'Pressure Vessel Farm — Phase II',
-        location: 'Najami Manufacturing Campus',
-        capacity: '86 vessels / 3,200 tons',
+      water: {
+        summary:
+          'Cross-country water transmission, desalination feed systems, and municipal pipeline networks form a core JV discipline — engineered, procured, and installed under single-contract accountability with full hydrostatic testing and commissioning protocols.',
+        expertise: [
+          'National water carrier transmission pipelines',
+          'Desalination RO plant piping and pump stations',
+          'Large-diameter welded network installation',
+          'HDD, tie-ins, and hydrostatic commissioning',
+        ],
       },
-      {
-        category: 'steel',
-        sector: 'COMMERCIAL CORE',
-        title: 'High-Rise Structural Steel Package',
-        location: 'Metropolitan District',
-        capacity: '64 floors / 8,600 tons',
-      },
-      {
-        category: 'water',
-        sector: 'TRANSMISSION',
-        title: 'National Water Carrier — Segment 7',
-        location: 'Central Highlands',
-        capacity: '32 km / 1,200mm dia.',
-      },
-      {
-        category: 'water',
-        sector: 'DESALINATION',
-        title: 'RO Plant Pipeline & Pump Station',
-        location: 'Mediterranean Coast',
-        capacity: '150,000 m³/day',
-      },
-    ],
-    viewAll: 'Request Full Project Dossier',
+    },
   },
-  blog: {
-    label: '06 — Technical Intelligence',
-    title: 'Engineering Reports',
-    subtitle: 'Field-tested analysis from the fabrication floor and pipeline trench.',
-    posts: [
-      {
-        date: '2026.05.28',
-        category: 'STEEL',
-        title: 'EN 1090 EXC3 Execution: Weld Procedure Qualification at 15,000-Ton Scale',
-        excerpt:
-          'How our fabrication yards maintain WPS compliance across multi-shift production — from material traceability through NDT acceptance criteria on structural nodes exceeding 80mm plate thickness.',
-        readTime: '12 min',
+  credibility: {
+    label: '06 — Credibility',
+    title: 'Top-Tier Industry Rankings',
+    subtitle:
+      'Both joint venture partners are officially recognized and ranked among Israel\'s leading engineering and industrial enterprises by DUNS 100.',
+    viewProfile: 'View Verified DUNS 100 Profile',
+    partners: {
+      najami: {
+        name: 'Sami Najami Engineering',
+        description:
+          'Ranked among Israel\'s foremost engineering and fabrication enterprises — recognized for large-scale structural steel execution, integrated project delivery, and proven industrial manufacturing capacity at national scale.',
       },
-      {
-        date: '2026.04.14',
-        category: 'PIPELINE',
-        title: 'HDD Crossing Design for 36" Transmission Lines in Karst Geology',
-        excerpt:
-          'Engineering methodology for horizontal directional drills beneath unstable limestone formations — bore path optimization, pullback stress analysis, and post-installation integrity verification.',
-        readTime: '18 min',
+      zatout: {
+        name: 'Zatout Group',
+        description:
+          'Officially ranked for excellence in industrial piping, heavy mechanical works, and energy infrastructure — delivering ASME-compliant process systems and EPC execution across refining, petrochemical, and municipal sectors.',
       },
-      {
-        date: '2026.03.02',
-        category: 'EPC',
-        title: 'Interface Management Between Fabrication Yards and Pipeline Corridors',
-        excerpt:
-          'Lessons from integrated EPC delivery where structural steel pipe racks and buried pipeline networks share the same corridor — coordination protocols that eliminated 340 rework hours on a live refinery expansion.',
-        readTime: '9 min',
-      },
-    ],
-    readMore: 'Read Full Report',
+    },
   },
   cta: {
     label: '07 — Engage',
@@ -233,7 +207,7 @@ export const en: Translation = {
       email: 'Email Address',
       company: 'Organization',
       message: 'Project Brief / Inquiry',
-      submit: 'Transmit',
+      submit: 'Submit Request',
     },
     toast: {
       title: 'Transmission Confirmed',
@@ -243,6 +217,7 @@ export const en: Translation = {
       headquarters: 'JV Headquarters',
       address: 'Industrial Zone 4, Plot 17-A\nHaifa Bay, Israel 3109001',
       phone: '+972 4 855 2200',
+      phoneLabel: 'Phone',
       email: 'command@najami-zatout.com',
       navigation: 'Navigation',
       legal: 'Legal',
