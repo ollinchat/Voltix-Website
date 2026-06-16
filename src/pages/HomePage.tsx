@@ -4,6 +4,7 @@ import { Footer } from '../components/layout/Footer';
 import { HeroSlider } from '../components/sections/HeroSlider';
 import { About } from '../components/sections/About';
 import { Synergy } from '../components/sections/Synergy';
+import { AcademyPreview } from '../components/sections/AcademyPreview';
 import { Team } from '../components/sections/Team';
 import { Projects } from '../components/sections/Projects';
 import { Portfolio } from '../components/sections/Portfolio';
@@ -27,6 +28,7 @@ export function HomePage() {
         <HeroSlider />
         <About />
         <Synergy />
+        <AcademyPreview />
         <Projects />
         <Team />
         <Portfolio />

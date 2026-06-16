@@ -138,6 +138,61 @@ export function ProjectPage({ id }: ProjectPageProps) {
                 ))}
               </tbody>
             </table>
+
+            {project.phases && project.phases.length > 0 && (
+              <div className="mt-10 border-t border-slate-100 pt-8">
+                <p className="mb-5 font-mono text-[10px] font-semibold uppercase tracking-widest text-slate-500">
+                  Engineering Lifecycle
+                </p>
+                <ul className="space-y-3">
+                  {project.phases.map((phase) => (
+                    <li key={phase} className="text-sm leading-relaxed text-slate-700 md:text-base">
+                      {phase}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {(project.materials?.length || project.keyPartners?.length) && (
+              <div className="mt-8 grid gap-6 md:grid-cols-2">
+                {project.materials && project.materials.length > 0 && (
+                  <div className="border border-slate-100 bg-slate-50 p-5">
+                    <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-widest text-slate-500">
+                      Technical Materials
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.materials.map((material) => (
+                        <span
+                          key={material}
+                          className="border border-slate-200 bg-white px-2.5 py-1 font-mono text-[10px] uppercase tracking-wide text-[#1a2d4a]"
+                        >
+                          {material}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
+                {project.keyPartners && project.keyPartners.length > 0 && (
+                  <div className="border border-slate-100 bg-slate-50 p-5">
+                    <p className="mb-3 font-mono text-[10px] font-semibold uppercase tracking-widest text-slate-500">
+                      Key Partners
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.keyPartners.map((partner) => (
+                        <span
+                          key={partner}
+                          className="border border-slate-200 bg-white px-2.5 py-1 font-mono text-[10px] uppercase tracking-wide text-[#1a2d4a]"
+                        >
+                          {partner}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            )}
           </motion.div>
         </div>
       </main>

@@ -117,6 +117,9 @@ export function Projects() {
                 <div className="p-5 md:p-6">
                   <div className="mb-4 flex items-start justify-between gap-3">
                     <div className="min-w-0 flex-1">
+                      <p className="mb-2 font-mono text-[10px] font-semibold uppercase tracking-widest text-[#1a2d4a]">
+                        {project.category}
+                      </p>
                       <h3 className="mb-2 text-sm font-black uppercase leading-snug tracking-wide text-voltix-900 md:text-base">
                         {project.title}
                       </h3>
